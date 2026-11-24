@@ -1,0 +1,33 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vp build",
+        "dev": "vp dev"
+    },
+    "dependencies": {
+        "@tailwindcss/vite": "^4.3.5",
+        "concurrently": "^10.0.7",
+        "laravel-vite-plugin": "^3.2",
+        "tailwindcss": "^4.3.5",
+        "vite": "npm:@voidzero-dev/vite-plus-core@8.3.8001",
+        "vite-plus": "1.8.0"
+    },
+    "optionalDependencies": {
+        "@laravel/multiplex": "^0.4.5",
+        "@rollup/rollup-linux-x64-gnu": "4.68.8",
+        "@tailwindcss/oxide-linux-x64-gnu": "^4.3.5",
+        "lightningcss-linux-x64-gnu": "^1.33.0"
+    },
+    "overrides": {
+        "vite": "$vite"
+    },
+    "volta": {
+        "node": "26.13.1",
+        "npm": "12.2.3"
+    },
+    "devDependencies": {
+        "fontaine": "^1.0.3"
+    }
+}
