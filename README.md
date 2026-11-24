@@ -1,41 +1,86 @@
-# WaterDefender
+<div align="center">
 
-WaterDefender is a Laravel application for the TLE2 project. It is currently the project foundation: a Laravel 13 application with Livewire 4, Blaze, Vite, and Tailwind CSS configured for iterative development.
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:004A73,50:016597,100:01CBE1&height=120&section=header" width="100%" alt="" />
 
-## Current status
+  <img src="./public/social-card-wide-transparent.png" width="650" alt="WaterDefender" />
 
-The application currently serves the Laravel welcome page at `/`. Domain-specific WaterDefender functionality has not yet been implemented. The repository includes the standard Laravel user, cache, and queue migrations, plus baseline unit and feature tests.
+  <br />
 
-## Technology stack
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3000&pause=1500&color=01CBE1&center=true&vCenter=true&width=600&lines=Designed.+Developed.+Defended.;Built+with+Laravel+%26+Livewire.;TLE2+%E2%80%94+Under+active+development." alt="WaterDefender project introduction" />
 
-- PHP 8.3 or newer
-- Laravel 13
-- Livewire 4 and Livewire Blaze
-- Vite and Tailwind CSS 4
-- SQLite by default (other Laravel-supported databases can be configured)
-- Pest 5, Larastan, and Laravel Pint for testing, static analysis, and formatting
+  <br />
 
-## Requirements
+  ![Laravel](https://img.shields.io/badge/Laravel_13-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+  ![PHP](https://img.shields.io/badge/PHP_8.3+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+  ![Livewire](https://img.shields.io/badge/Livewire_4-FB70A9?style=for-the-badge&logo=livewire&logoColor=white)
+  ![Tailwind CSS](https://img.shields.io/badge/Tailwind_4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+  ![Vite+](https://img.shields.io/badge/Vite%2B-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-Install the following before setting up the project:
+  [Getting Started](#getting-started) ·
+  [Development](#development) ·
+  [Project Structure](#project-structure) ·
+  [Contributing](#contributing)
+
+</div>
+
+---
+
+## About
+
+WaterDefender is a Laravel-based web application developed as part
+of the TLE2 project, combining reactive interfaces, modern frontend
+tooling and automated code quality checks.
+
+> [!NOTE]
+> The project is currently under active development.
+> Core WaterDefender functionality has yet to be implemented.
+
+## Technology Stack
+
+| Layer | Technologies |
+| :--- | :--- |
+| Backend | PHP 8.3+, Laravel 13 |
+| Frontend | Blade, Livewire 4, Blaze |
+| Styling | Tailwind CSS 4 |
+| Build tooling | Vite+, Node.js, npm |
+| Database | SQLite |
+| Testing | Pest 5 |
+| Code quality | Larastan, PHPStan, Laravel Pint |
+
+## Getting Started
+
+### Requirements
 
 - PHP 8.3+
 - Composer
-- Node.js and npm (the repository specifies Node 26.13.1 and npm 12.2.3 through Volta)
+- Node.js 26.13.1
+- npm 12.2.3
 
-## Installation
+Node.js and npm versions are managed through Volta.
 
-Clone the repository, enter the project directory, and run the bundled setup script:
+### Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/toon-van-berkel/WaterDefender.git
 cd WaterDefender
 composer run setup
 ```
 
-The setup script installs dependencies, creates `.env` from `.env.example` when needed, generates the application key, runs migrations, and builds frontend assets.
+The setup script installs dependencies, configures the environment,
+generates the application key, runs migrations and builds frontend assets.
 
-For a manual setup:
+### Run locally
+
+```bash
+composer run dev
+```
+
+Open [localhost:8000](http://localhost:8000) in your browser.
+
+<details>
+<summary><b>Manual installation</b></summary>
+
+<br />
 
 ```bash
 composer install
@@ -46,58 +91,136 @@ npm install
 npm run build
 ```
 
-On Windows PowerShell, use `Copy-Item .env.example .env` instead of `cp .env.example .env`.
+For Windows PowerShell:
 
-## Running locally
-
-Start the Laravel development environment with:
-
-```bash
-composer run dev
+```powershell
+Copy-Item .env.example .env
 ```
 
-The application is normally available at [http://localhost:8000](http://localhost:8000). To run only the frontend asset watcher, use `npm run dev`.
+</details>
 
-## Testing and quality checks
+## Development
 
-Run the complete project check suite with:
+### Available Commands
+
+| Command | Description |
+| :--- | :--- |
+| `composer run setup` | Initialize the application |
+| `composer run dev` | Start the development environment |
+| `composer run test` | Run the complete quality check suite |
+| `composer run lint` | Format PHP code |
+| `composer run lint:check` | Validate code formatting |
+| `composer run types:check` | Run static analysis |
+| `composer run ci:check` | Run CI checks |
+| `npm run dev` | Start the frontend development server |
+| `npm run build` | Build production assets |
+
+### Quality Control
+
+Every contribution should pass the complete quality check suite.
 
 ```bash
 composer run test
 ```
 
-This clears configuration, checks formatting, runs Larastan, and executes Pest. Useful focused commands include:
+```mermaid
+flowchart LR
+    A[Source Code] --> B[Laravel Pint]
+    B --> C[Larastan]
+    C --> D[Pest]
+    D --> E[Ready for Review]
 
-```bash
-php artisan test --compact
-vendor/bin/pint --dirty --format agent
-php artisan test tests/Feature/ExampleTest.php
-phpstan analyse
+    style A fill:#004A73,color:#fff,stroke:#01CBE1
+    style B fill:#004A73,color:#fff,stroke:#01CBE1
+    style C fill:#004A73,color:#fff,stroke:#01CBE1
+    style D fill:#004A73,color:#fff,stroke:#01CBE1
+    style E fill:#01CBE1,color:#004A73,stroke:#01CBE1
 ```
 
-## Project structure
+Individual checks can also be executed independently.
+
+```bash
+composer run lint:check
+composer run types:check
+php artisan test
+```
+
+## Project Structure
 
 ```text
-app/          Application code
-bootstrap/    Framework bootstrapping
-config/       Application configuration
-database/     Migrations, factories, and seeders
-resources/    Blade views, JavaScript, and CSS
-routes/       HTTP and console routes
-tests/        Pest feature and unit tests
-public/       Web entry point and public assets
+WaterDefender/
+├── app/                 # Application logic
+├── bootstrap/           # Framework initialization
+├── config/              # Application configuration
+├── database/
+│   ├── factories/
+│   ├── migrations/
+│   └── seeders/
+├── public/              # Public assets
+├── resources/
+│   ├── css/
+│   ├── js/
+│   └── views/
+├── routes/              # Application routes
+├── tests/
+│   ├── Feature/
+│   └── Unit/
+├── .env.example
+├── composer.json
+└── package.json
 ```
 
 ## Configuration
 
-Runtime configuration is read from `.env`. The default configuration uses SQLite and stores sessions, cache, and queued jobs in the database. Do not commit local secrets or a populated `.env` file.
+Environment-specific configuration is managed through `.env`.
 
-To use another database, update the relevant `DB_*` values in `.env` and run `php artisan migrate`.
+```dotenv
+DB_CONNECTION=sqlite
+
+SESSION_DRIVER=database
+CACHE_STORE=database
+QUEUE_CONNECTION=database
+```
+
+> [!IMPORTANT]
+> Never commit a populated `.env` file or hardcode sensitive credentials.
+
+When changing the database configuration, run:
+
+```bash
+php artisan migrate
+```
 
 ## Contributing
 
-Keep changes focused, follow the existing Laravel conventions, add or update Pest tests for behavior changes, and run `composer run test` before opening a pull request.
+1. Create a feature or fix branch.
+2. Follow the existing Laravel conventions.
+3. Add or update relevant tests.
+4. Run `composer run test`.
+5. Submit a pull request.
 
-## License
+## Contributors
 
-This project is currently distributed under the MIT license declared by the application package metadata.
+<div align="center">
+
+  <a href="https://github.com/toon-van-berkel/WaterDefender/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=toon-van-berkel/WaterDefender" alt="Contributors" />
+  </a>
+
+</div>
+
+---
+
+<div align="center">
+
+  <img src="./public/favicon.svg" width="60" alt="WaterDefender" />
+
+  <br />
+
+  **Designed. Developed. Defended.**
+
+  TLE2 · WaterDefender · MIT License
+
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:004A73,50:016597,100:01CBE1&height=100&section=footer" width="100%" alt="" />
+
+</div>
