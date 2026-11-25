@@ -10,16 +10,16 @@
 
   <br />
 
-  ![Laravel](https://img.shields.io/badge/Laravel_13-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
-  ![PHP](https://img.shields.io/badge/PHP_8.3+-777BB4?style=for-the-badge&logo=php&logoColor=white)
-  ![Livewire](https://img.shields.io/badge/Livewire_4-FB70A9?style=for-the-badge&logo=livewire&logoColor=white)
-  ![Tailwind CSS](https://img.shields.io/badge/Tailwind_4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-  ![Vite+](https://img.shields.io/badge/Vite%2B-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel_13-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP_8.3+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Livewire](https://img.shields.io/badge/Livewire_4-FB70A9?style=for-the-badge&logo=livewire&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Vite+](https://img.shields.io/badge/Vite%2B-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-  [Getting Started](#getting-started) ·
-  [Development](#development) ·
-  [Project Structure](#project-structure) ·
-  [Contributing](#contributing)
+[Getting Started](#getting-started) ·
+[Development](#development) ·
+[Project Structure](#project-structure) ·
+[Contributing](#contributing)
 
 </div>
 
@@ -37,15 +37,15 @@ tooling and automated code quality checks.
 
 ## Technology Stack
 
-| Layer | Technologies |
-| :--- | :--- |
-| Backend | PHP 8.3+, Laravel 13 |
-| Frontend | Blade, Livewire 4, Blaze |
-| Styling | Tailwind CSS 4 |
-| Build tooling | Vite+, Node.js, npm |
-| Database | SQLite |
-| Testing | Pest 5 |
-| Code quality | Larastan, PHPStan, Laravel Pint |
+| Layer         | Technologies                              |
+| :------------ | :---------------------------------------- |
+| Backend       | PHP 8.3+, Laravel 13                      |
+| Frontend      | Blade, Livewire 4, Blaze                  |
+| Styling       | Tailwind CSS 4                            |
+| Build tooling | Vite+, Node.js, npm                       |
+| Database      | SQLite                                    |
+| Testing       | Pest 5                                    |
+| Code quality  | Larastan, PHPStan, Laravel Pint, Prettier |
 
 ## Getting Started
 
@@ -103,17 +103,18 @@ Copy-Item .env.example .env
 
 ### Available Commands
 
-| Command | Description |
-| :--- | :--- |
-| `composer run setup` | Initialize the application |
-| `composer run dev` | Start the development environment |
-| `composer run test` | Run the complete quality check suite |
-| `composer run lint` | Format PHP code |
-| `composer run lint:check` | Validate code formatting |
-| `composer run types:check` | Run static analysis |
-| `composer run ci:check` | Run CI checks |
-| `npm run dev` | Start the frontend development server |
-| `npm run build` | Build production assets |
+| Command                    | Description                           |
+| :------------------------- | :------------------------------------ |
+| `composer run setup`       | Initialize the application            |
+| `composer run dev`         | Start the development environment     |
+| `composer run test`        | Run the complete quality check suite  |
+| `composer run lint`        | Format PHP code                       |
+| `composer run lint:check`  | Validate code formatting              |
+| `composer run types:check` | Run static analysis                   |
+| `composer run ci:check`    | Run CI checks                         |
+| `npm run dev`              | Start the frontend development server |
+| `npm run build`            | Build production assets               |
+| `npm run format`           | Format frontend code using Prettier   |
 
 ### Quality Control
 
@@ -143,6 +144,23 @@ Individual checks can also be executed independently.
 composer run lint:check
 composer run types:check
 php artisan test
+```
+
+### Code Formatting
+
+WaterDefender uses automated code formatting to maintain a consistent
+code style across the application.
+
+| Formatter    | Responsibility           | Command             |
+| :----------- | :----------------------- | :------------------ |
+| Laravel Pint | PHP code formatting      | `composer run lint` |
+| Prettier     | Frontend code formatting | `npm run format`    |
+
+Run both formatters before submitting a pull request:
+
+```bash
+composer run lint
+npm run format
 ```
 
 ## Project Structure
@@ -194,10 +212,12 @@ php artisan migrate
 ## Contributing
 
 1. Create a feature or fix branch.
-2. Follow the existing Laravel conventions.
+2. Follow the existing Laravel and frontend conventions.
 3. Add or update relevant tests.
-4. Run `composer run test`.
-5. Submit a pull request.
+4. Format PHP code using `composer run lint`.
+5. Format frontend code using `npm run format`.
+6. Run `composer run test`.
+7. Submit a pull request.
 
 ## Contributors
 
@@ -217,9 +237,9 @@ php artisan migrate
 
   <br />
 
-  **Designed. Developed. Defended.**
+**Designed. Developed. Defended.**
 
-  TLE2 · WaterDefender · MIT License
+TLE2 · WaterDefender · MIT License
 
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:004A73,50:016597,100:01CBE1&height=100&section=footer" width="100%" alt="" />
 

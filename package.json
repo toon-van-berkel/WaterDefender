@@ -4,7 +4,8 @@
     "type": "module",
     "scripts": {
         "build": "vp build",
-        "dev": "vp dev"
+        "dev": "vp dev",
+        "format": "prettier --write \"resources/views/**/*.blade.php\""
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.3.5",
@@ -28,6 +29,9 @@
         "npm": "12.2.3"
     },
     "devDependencies": {
-        "fontaine": "^1.0.3"
+        "fontaine": "^1.0.3",
+        "prettier": "^3.10.1",
+        "prettier-plugin-blade": "^3.3.3",
+        "prettier-plugin-tailwindcss": "^0.8.1"
     }
 }
