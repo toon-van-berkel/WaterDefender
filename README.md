@@ -224,7 +224,11 @@ php artisan migrate
 <div align="center">
 
   <a href="https://github.com/toon-van-berkel/WaterDefender/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=toon-van-berkel/WaterDefender" alt="Contributors" />
+    <img src="https://contrib.rocks/image?repo=toon-van-berkel/WaterDefender" alt="Contributor Toon van Berkel" />
+    <img src="https://contrib.rocks/image?repo=Tinus899/WaterDefender"        alt="Contributor Martijn Swarte" />
+    <img src="https://contrib.rocks/image?repo=kellseyvdongen/WaterDefender"  alt="Contributor Kellsey van Dongen" />
+    <img src="https://contrib.rocks/image?repo=KingPeasant1/WaterDefender"    alt="Contributor Ashwendly Martina" />
+    <img src="https://contrib.rocks/image?repo=IbsenE10/WaterDefender"        alt="Contributor Ibsen Enser" />
   </a>
 
 </div>
